@@ -1,21 +1,20 @@
 import React, { useRef, useState } from "react";
 
 export function UserefConcept2() {
-    const  InputRef = useRef()
-    const [name,setName] = useState()
-    function handleClick(){
-        const greet = InputRef.current.value
-        setName(greet)
+    const inputRef = useRef(null); // ✅ consistent naming
+    const [name, setName] = useState("");
+
+    function handleClick() {
+        const greet = inputRef.current.value;
+        setName(greet);
     }
 
-   
-
-    return(
+    return (
         <>
-        <input type="text" ref={inputRef} />
-        <button onClick={focusInput}> click me</button>
+            <input type="text" ref={inputRef} />
+            <button onClick={handleClick}>click me</button>
 
-        <h1>hello : {name}</h1>
+            <h1>hello : {name}</h1>
         </>
-    )
+    );
 }
